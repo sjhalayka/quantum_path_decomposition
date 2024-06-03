@@ -33,7 +33,7 @@ The precession associated with each weighted path combines to provide the same a
 \end{abstract}
 
 
-\section{Introduction}
+\section{Time dilation}
 
 The kinematic time dilation is:
 \begin{equation}
@@ -47,7 +47,52 @@ The gravitational time dilation is:
 \frac{d\tau}{dt} = \sqrt{1 - \frac{R_s}{r}}.
 \end{equation}
 
+In this paper we will be quantizing the kinematic and gravitational time dilation by casting them to a smaller floating point number. The quantized step size (e.g. epsilon) in general is $\epsilon = 2^{-m}$ where $m$ is the number of mantissa bits in the floating point number.
 
+
+
+
+
+
+\section{Steps in spacetime}
+
+Where $\ell_s$ denotes the Sun's location at the origin, $\ell_o$ denotes the orbiter's location, and $\vec{d}$ denotes the direction vector that points from the orbiter toward the Sun:
+\begin{equation}
+\label{direction_vector}
+\vec{d} = \ell_{s} - \ell_{o},	
+\end{equation}
+\begin{equation}
+\label{direction_unit_vector}
+\hat{d} = \frac{\vec{d}}{\lvert\lvert \vec{d} \rvert\rvert},
+\end{equation}
+the Newtonian acceleration vector is:
+\begin{equation}
+\label{newton}
+\vec{g}_n = \frac{\hat{d} G M}{{\lvert\lvert \vec{d} \rvert\rvert}^2}.
+\end{equation}
+
+One parameter is closely related to the kinematic time dilation:
+\begin{equation}
+\label{eq_kinematic}
+\alpha = 2 - \sqrt{1 - \frac{\lvert\lvert \vec{v}_{o}\rvert\rvert^2}{c^2}}.
+\end{equation}
+Another parameter is the gravitational time dilation:
+\begin{equation}
+\label{eq_gravitational}
+\beta = \sqrt{1 - \frac{R_{s}}{\lvert \lvert \vec{d} \rvert \rvert}}.
+\end{equation}
+
+Finally, the semi-implicit Euler integration for velocity and then location is:
+\begin{align}
+\label{eq_velocity}
+\vec{v}_{o}(t + \delta_t) &= \vec{v}_{o}(t) + \delta_{t} \alpha \vec{g}_n, \\
+\label{eq_position}
+\ell_{o}(t + \delta_t) &= \ell_{o}(t) + \delta_{t} \beta \vec{v}_{o}(t + \delta_t).
+\end{align}
+Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
+
+
+\section{Precession}
 
 \begin{equation}
 \label{delta_p}
@@ -58,14 +103,6 @@ The gravitational time dilation is:
 
 
 \
-
-
-
-
-
-Step size (e.g. epsilon) in general is $\epsilon = 2^{-m}$ where $m$ is the number of mantissa bits.
-
-
 
 
 \begin{figure} 
