@@ -47,8 +47,9 @@ The gravitational time dilation is:
 \frac{d\tau}{dt} = \sqrt{1 - \frac{R_s}{r}}.
 \end{equation}
 
-In this paper we will be quantizing the kinematic and gravitational time dilation by casting them to a smaller floating point number. The quantized step size (e.g. epsilon) in general is $\epsilon = 2^{-m}$ where $m$ is the number of mantissa bits in the floating point number.
-
+In this paper we will be quantizing the kinematic and gravitational time dilation by casting them to a smaller floating point number. 
+The quantized step size (e.g. epsilon) in general is $\epsilon = 2^{-m}$ where $m$ is the number of mantissa bits in the floating point number.
+In this paper, the bit count $n$ includes the number of mantissa bits $m$, plus one sign bit.
 
 
 
@@ -92,20 +93,22 @@ Finally, the semi-implicit Euler integration for velocity and then location is:
 Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
 
 
-\section{Precession}
+\section{Classical analytical calculation of Mercury's orbit precession}
 
 \begin{equation}
 \label{delta_p}
 \delta_{p} = \frac{6 \pi G M}{c^2 (1 - e^2) a} \left( \frac{1}{ \pi \times 180 \times 3600} \right) \left( \frac{365}{88} \times 100 \right) = 42.937
 \end{equation}
 
-Here the bit count includes the number of mantissa bits, plus one sign bit.
 
+\section{Quantum path decomposition}
+
+There is a pattern.
 Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
-Bits & Angle \\
+Bits $n$ & Angle \\
 \hline
 \hline
 20 & 17..04 \\
@@ -129,7 +132,7 @@ Where initial speed is $20000$ metres per second, and the analytical solution is
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
-Bits & Angle \\
+Bits $n$ & Angle \\
 \hline
 \hline
 21 & 27.86 \\
@@ -144,7 +147,7 @@ Where initial speed is $30000$ metres per second, and the analytical solution is
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
-Bits & Angle \\
+Bits $n$ & Angle \\
 \hline
 \hline
 23 & 46.45 \\
@@ -158,7 +161,7 @@ Where initial speed is $38858.47$ metres per second, and the analytical solution
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
-Bits & Angle \\
+Bits $n$ & Angle \\
 \hline
 \hline
 24 & 46.8 \\
@@ -171,7 +174,7 @@ Where initial speed is $42500$ metres per second, and the analytical solution is
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
-Bits & Angle \\
+Bits $n$ & Angle \\
 \hline
 \hline
 26 & 51.7 \\
@@ -183,6 +186,14 @@ Obviously, this solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
 
 
 
+
+
+
+
+
+
+
+
 \begin{figure} 
 \centering
 \label{fig4}
@@ -190,6 +201,12 @@ Obviously, this solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
   \caption{ A diagram showing precession, where the orbit does not quite form a closed ellipse.
 }
 \end{figure}
+
+
+
+
+
+
 
 
 
