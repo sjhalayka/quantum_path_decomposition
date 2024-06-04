@@ -28,16 +28,18 @@
 \maketitle
 
 \begin{abstract}
-By quantizing the gravitational time dilation using various step sizes, one obtains a set of weighted paths.
+By quantizing the kinematic and gravitational time dilation using various step sizes, one obtains a set of weighted paths.
 The precession associated with each weighted path combines to provide the same answer as the classical analytical solution.
 \end{abstract}
+
+
 
 
 
 \section{Introduction}
 
 In a previous paper \cite{halayka}, we introduced a method of numerical simulation for the four Solar System tests of general relativity.
-There was a catch: one had to quantize gravitational time dilation by casting the relevant floating point variables from double-precision to single-precision.
+There was a catch: one had to quantize the kinematic and gravitational time dilation by casting the relevant floating point variables from double-precision to single-precision.
 A first, this was taken to be a bug, but after careful consideration, it turns out to be a feature of reality.
 This paper will demonstrate how to decompose the orbit path of Mercury, to numerically obtain the relativistic orbit precession.
 
@@ -52,11 +54,16 @@ The kinematic time dilation is:
 \frac{d\tau}{dt} = \frac{\sqrt{c^2 - \lvert\lvert \vec{v}\rvert\rvert^2}}{c} = \sqrt{1 - \frac{\lvert\lvert \vec{v}\rvert\rvert^2}{c^2}}.
 \end{equation}
 
-The gravitational time dilation is:
+The gravitational time dilation in the Schwarzschild solution is:
 \begin{equation}
 \label{eq_intro_gravitational}
-\frac{d\tau}{dt} = \sqrt{1 - \frac{R_s}{r}}.
+\frac{d\tau}{dt} = \sqrt{1 - \frac{R_s}{r}},
 \end{equation}
+where the Schwarzschild radius is $R_s = 2GM/c^2$.
+
+
+
+\section{Quantization of time dilation}
 
 In this paper, we will be quantizing the kinematic and gravitational time dilation by casting them to a lesser-precision floating point number.
 
@@ -70,7 +77,7 @@ We generally used $n = 100$, except for the kinematic and gravitational time dil
 
 \section{Steps in spacetime}
 
-Where $\ell_s$ denotes the Sun's location at the origin, $\ell_o$ denotes the orbiter's location, and $\vec{d}$ denotes the direction vector that points from the orbiter toward the Sun:
+Where $\ell_s$ denotes the Sun's location at the origin, $\ell_o$ denotes the orbiter Mercury's location, and $\vec{d}$ denotes the direction vector that points from the orbiter toward the Sun:
 \begin{equation}
 \label{direction_vector}
 \vec{d} = \ell_{s} - \ell_{o},	
@@ -182,7 +189,7 @@ Bits $n$ & Angle $\delta_{p}$\\
 \end{center}
 If you add bit counts 23 and 24 together, you get $74.25$.
 
-Where initial speed is $38858.47$ metres per second, and the analytical solution is $42.9$:
+Where initial speed is $38858.47$ metres per second (e.g. the actual speed at aphelion), and the analytical solution is $42.9$:
 \begin{center}
 \begin{tabular}{| l | r |}
   \hline
@@ -211,7 +218,7 @@ Obviously, this solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
 
 
 
-
+\pagebreak
 
 
 
@@ -229,6 +236,9 @@ Obviously, this solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
 
 
 
+
+
+\pagebreak
 
 
 
