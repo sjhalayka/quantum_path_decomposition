@@ -57,7 +57,7 @@ We generally used $n = 100$, except for the kinematic and gravitational time dil
 For subnormal numbers such as those used here, the smallest step size that can be represented is $\epsilon = 2 \times 2^{-b}$, where $b$ is the largest exponent value (e.g. $2^7 - 1 = 127$ in single-precision floating point numbers, $2^{10} - 1 = 1023$ for doubles).
 For instance, we use $1023$ where $n = 100$, and $127$ otherwise (e.g. where $n = 24$).
 
-
+As for $m$, it governs how many places there are after the decimal point.
 
 
 
@@ -98,7 +98,7 @@ Finally, the semi-implicit Euler integration for velocity and then location is:
 \end{align}
 Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
 
-
+See Figs 1 and 2.
 
 
 
@@ -113,7 +113,7 @@ The classical orbit precession is:
 \end{equation}
 where $e = 0.2056$ is the eccentricity and $a = 5.7909 \times 10^{10}$ is the semi-major axis.
 
-
+See Fig. 3.
 
 
 \section{Quantum path decomposition}
@@ -210,6 +210,7 @@ Obviously, this final solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 
 
 
 \bibitem{halayka} Halayka. On simulating the four Solar System tests of general relativity using two-parameter post-Newtonian gravitation with Euler integration. (2024)
+\bibitem{misner} Misner et al. Gravitation. (1970)
 
 \end{thebibliography}
 
@@ -222,24 +223,13 @@ Obviously, this final solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 
 
 
 
-\begin{figure} 
-\centering
-\label{fig4}
-  \includegraphics[width = 6 in]{precession.png}
-  \caption{ A diagram showing precession, where the orbit does not quite form a closed ellipse.
-}
-\end{figure}
-
-
-
-
 
 \begin{figure} 
 \centering
 \label{fig7}
   \includegraphics[width = 6 in]{velocity.png}
   \caption{
-A diagram of the integration of velocity.
+A diagram of the Euler integration of velocity.
 }
 \end{figure}
 
@@ -248,9 +238,20 @@ A diagram of the integration of velocity.
 \label{fig8}
   \includegraphics[width = 6 in]{location.png}
   \caption{
-A diagram of the integration of location.
+A diagram of the Euler integration of location.
 }
 \end{figure}
+
+
+
+\begin{figure} 
+\centering
+\label{fig4}
+  \includegraphics[width = 6 in]{precession.png}
+  \caption{ A diagram showing precession, where the orbit does not quite form a closed ellipse.
+}
+\end{figure}
+
 
 
 
