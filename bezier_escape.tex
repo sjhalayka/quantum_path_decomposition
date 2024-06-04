@@ -47,10 +47,12 @@ The gravitational time dilation is:
 \frac{d\tau}{dt} = \sqrt{1 - \frac{R_s}{r}}.
 \end{equation}
 
-In this paper we will be quantizing the kinematic and gravitational time dilation by casting them to a smaller floating point number. 
-The quantized step size (e.g. epsilon) in general is $\epsilon = 2^{-m}$ where $m$ is the number of mantissa bits in the floating point number.
-In this paper, the bit count $n$ includes the number of mantissa bits $m$, plus one sign bit.
+In this paper, we will be quantizing the kinematic and gravitational time dilation by casting them to a lesser-precision floating point number.
 
+The smallest step size that can be represented is $\epsilon = 2 \times 2^{-b}$, where $b$ is the largest exponent value (e.g. $2^7 - 1 = 127$ in single-precision floating point numbers, $2^{10} - 1 = 1023$ for doubles).
+
+The non-exponent bit count $n$ includes the number of mantissa bits $m$, plus one sign bit.
+We generally used $n = 100$, except for the kinematic and gravitational time dilation, which uses a lesser, various precision (e.g. $24$).
 
 
 
@@ -93,6 +95,11 @@ Finally, the semi-implicit Euler integration for velocity and then location is:
 Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
 
 
+
+
+
+
+
 \section{Classical analytical calculation of Mercury's orbit precession}
 
 \begin{equation}
@@ -101,9 +108,15 @@ Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
 \end{equation}
 
 
+
+
+
 \section{Quantum path decomposition}
 
+
+
 There is a pattern.
+
 Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
 \begin{center}
 \begin{tabular}{| l | r |}
