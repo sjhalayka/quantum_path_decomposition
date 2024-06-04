@@ -33,6 +33,16 @@ The precession associated with each weighted path combines to provide the same a
 \end{abstract}
 
 
+
+\section{Introduction}
+
+In a previous paper \cite{halayka}, we introduced a method of numerical simulation for the four Solar System tests of general relativity.
+There was a catch: one had to quantize gravitational time dilation by casting the relevant floating point variables from double-precision to single-precision. 
+This paper will demonstrate how to decompose the orbit path of Mercury, to numerically obtain the total relativistic orbit precession.
+
+
+
+
 \section{Time dilation}
 
 The kinematic time dilation is:
@@ -102,20 +112,21 @@ Note that Newtonian gravity is the result where $\alpha = \beta = 1$.
 
 \section{Classical analytical calculation of Mercury's orbit precession}
 
+The classical orbit precession is:
 \begin{equation}
 \label{delta_p}
 \delta_{p} = \frac{6 \pi G M}{c^2 (1 - e^2) a} \left( \frac{1}{ \pi \times 180 \times 3600} \right) \left( \frac{365}{88} \times 100 \right) = 42.937
 \end{equation}
-
+where $e = 0.2056$ is the eccentricity and $a = 5.7909 \times 10^{10}$ is the semi-major axis.
 
 
 
 
 \section{Quantum path decomposition}
 
-
-
 There is a pattern.
+
+We use an initial location that is $69817079000$ metres from the Sun (e.g. the aphelion).
 
 Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
 \begin{center}
@@ -181,7 +192,6 @@ Bits $n$ & Angle $\delta_{p}$ \\
   \hline  
 \end{tabular}
 \end{center}
-The numerical solution is $46.8$.
 
 Where initial speed is $42500$ metres per second, and the analytical solution is $35.8$:
 \begin{center}
@@ -194,7 +204,6 @@ Bits $n$ & Angle $\delta_{p}$\\
   \hline  
 \end{tabular}
 \end{center}
-The numerical solution is $51.7$.
 Obviously, this solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
 
 
