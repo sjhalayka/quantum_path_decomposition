@@ -129,38 +129,37 @@ We use various initial speeds.
 
 Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
 \begin{center}
-\begin{tabular}{| l | r |}
+\begin{tabular}{| l | r | r |}
   \hline
-Bits $n$ & Angle $\delta_{p}$ \\
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
 \hline
 \hline
-20 &  \\
-21 &  \\
-22 &  \\
-23 &  \\
-24 &  \\
-25 &   \\
-26 &  \\
-27 &   \\
-28 &   \\
-29 &  \\
-30 &   \\
+20 &  & 0\\
+21 &  & 0\\
+22 &  & 1\\
+23 &  & 1\\
+24 &  & 1\\
+25 &  & 0\\
+26 &  & 0\\
+27 &  & 0\\
+28 &  & 0\\
+29 &  & 0\\
+30 &  & 0\\
   \hline  
 \end{tabular}
 \end{center}
-If we add bit counts 22, 23, and 24 together (e.g. $ +   +  $) we get $ $ arcseconds per Earth century.
-All of the other bit counts have a weight of zero.
+If we add bit counts 22, 23, and 24 together (e.g. $  +   +  $) we get $ $ arcseconds per Earth century.
 
 Where initial speed is $20000$ metres per second, and the analytical solution is $162.09$:
 \begin{center}
-\begin{tabular}{| l | r |}
+\begin{tabular}{| l | r | r |}
   \hline
-Bits $n$ & Angle $\delta_{p}$\\
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
 \hline
 \hline
-21 &  \\
-22 &  \\
-23 &  \\
+21 &  & 1 \\
+22 &  & 1\\
+23 &  & 1 \\
   \hline  
 \end{tabular}
 \end{center}
@@ -168,13 +167,13 @@ If we add bit counts 21, 22, and 23 together, we get $ $.
 
 Where initial speed is $30000$ metres per second, and the analytical solution is $72.04$:
 \begin{center}
-\begin{tabular}{| l | r |}
+\begin{tabular}{| l | r | r |}
   \hline
-Bits $n$ & Angle $\delta_{p}$\\
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
 \hline
 \hline
-23 & 41.45 \\
-24 & 26.78 \\
+23 & 41.45 & 1\\
+24 & 26.78 & 1 \\
   \hline  
 \end{tabular}
 \end{center}
@@ -182,12 +181,12 @@ If we add bit counts 23 and 24 together, we get $68.23$.
 
 Where initial speed is $38858.47$ metres per second (e.g. the actual speed at aphelion), and the analytical solution is $42.9$:
 \begin{center}
-\begin{tabular}{| l | r |}
+\begin{tabular}{| l | r | r |}
   \hline
-Bits $n$ & Angle $\delta_{p}$ \\
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
 \hline
 \hline
-24 & 46.35 \\
+24 & 46.35 & 42.9 / 46.35\\
   \hline  
 \end{tabular}
 \end{center}
@@ -196,16 +195,16 @@ Note that a single-precision floating point number has $24$ mantissa and sign bi
 
 Where initial speed is $42500$ metres per second, and the analytical solution is $35.8$:
 \begin{center}
-\begin{tabular}{| l | r |}
+\begin{tabular}{| l | r | r |}
   \hline
-Bits $n$ & Angle $\delta_{p}$\\
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
 \hline
 \hline
-26 & 51.7 \\
+26 & 51.7 & 35.8 / 51.7 \\
   \hline  
 \end{tabular}
 \end{center}
-Obviously, this final solution's weight is less than $1$ (e.g. $(35.8 / 51.7) < 1$).
+
 
 
 
