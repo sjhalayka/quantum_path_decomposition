@@ -127,29 +127,6 @@ There is a highly visible pattern, which we shall point out.
 We use an initial location that is $6.9817079 \times 10^{10}$ metres from the Sun (e.g. the aphelion).
 We use various initial speeds.
 
-Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
-\begin{center}
-\begin{tabular}{| l | r | r |}
-  \hline
-Bits $n$ & Angle $\delta_{p}$ & Weight\\
-\hline
-\hline
-20 &  & 0\\
-21 &  & 0\\
-22 &  & 1\\
-23 &  & 1\\
-24 &  & 1\\
-25 &  & 0\\
-26 &  & 0\\
-27 &  & 0\\
-28 &  & 0\\
-29 &  & 0\\
-30 &  & 0\\
-  \hline  
-\end{tabular}
-\end{center}
-If we add bit counts 22, 23, and 24 together (e.g. $  +   +  $) we get $ $ arcseconds per Earth century.
-
 Where initial speed is $20000$ metres per second, and the analytical solution is $162.09$:
 \begin{center}
 \begin{tabular}{| l | r | r |}
@@ -163,7 +140,22 @@ Bits $n$ & Angle $\delta_{p}$ & Weight\\
   \hline  
 \end{tabular}
 \end{center}
-If we add bit counts 21, 22, and 23 together, we get $ $.
+If we add bit counts 21, 22, and 23 together, we get $ $ arcseconds per Earth century.
+
+Where initial speed is $25000$ metres per second, and the analytical solution is $103.7$:
+\begin{center}
+\begin{tabular}{| l | r | r |}
+  \hline
+Bits $n$ & Angle $\delta_{p}$ & Weight\\
+\hline
+\hline
+22 &  & 1\\
+23 &  & 1\\
+24 &  & 1\\
+  \hline  
+\end{tabular}
+\end{center}
+If we add bit counts 22, 23, and 24 together, we get $ $.
 
 Where initial speed is $30000$ metres per second, and the analytical solution is $72.04$:
 \begin{center}
